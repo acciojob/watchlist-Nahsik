@@ -18,15 +18,11 @@ public class MovieRepository {
     }
 
     public void saveMovie(Movie movie){
-        if(!movieMap.containsKey(movie.getName())){
             movieMap.put(movie.getName(), movie);
-        }
     }
 
     public void saveDirector(Director director){
-        if(!directorMap.containsKey(director.getName())){
             directorMap.put(director.getName(), director);
-        }
     }
 
     public void saveMovieDirectorPair(String movie, String director){
