@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MovieRepository {
 
-    private HashMap<String, Movie> movieMap;
-    private HashMap<String, Director> directorMap;
-    private HashMap<String, List<String>> directorMovieMapping;
+    private final HashMap<String, Movie> movieMap;
+    private final HashMap<String, Director> directorMap;
+    private final HashMap<String, List<String>> directorMovieMapping;
 
     public MovieRepository() {
         this.movieMap = new HashMap<String, Movie>();
@@ -58,8 +58,8 @@ public class MovieRepository {
     }
 
     public void deleteAllDirector() {
-        directorMap = new HashMap<>();
-        directorMovieMapping = new HashMap<>();
-        movieMap = new HashMap<>();
+        for (String director : directorMap.keySet()) {
+            deleteDirector(director);
+        }
     }
 }
